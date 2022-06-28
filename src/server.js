@@ -10,6 +10,6 @@ app.use(express.json())
 app.use(routes)
 
 //STATIC
-app.use('/uploads', express.static(path.join('..', 'uploads')))
+app.use('/uploads', express.static(path.join(__dirname, '..', 'uploads')))
 
 app.listen(3333, () => console.log('server is running'))

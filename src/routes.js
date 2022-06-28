@@ -8,6 +8,7 @@ const upload = multer(uploadConfig)
 const userController = new UserController()
 
 routes.post('/create-user', upload.single('image'), userController.create)
+routes.post('/user/login', userController.login)
 
 
 module.exports = routes
