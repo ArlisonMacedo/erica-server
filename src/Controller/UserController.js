@@ -4,6 +4,9 @@ const connection  = require('../database/connection')
 
 class UserController {
     async create (request, response) {
+
+        
+
         const {
             name,
             username,
@@ -11,6 +14,13 @@ class UserController {
             functionBand,
             bio,
         } = request.body
+
+        const alreadyUsername = await connection('users')
+            .where('username', username)
+            .select('id')
+        if(alreadyUsername[0]){
+            return response.status(400).json({error: 'usuario já existe'})
+        } 
         
         const trx = await connection.transaction()
         const user = {
