@@ -7,6 +7,6 @@ module.exports = {
     },
     useNullAsDefault: true,
     migrations: {
-        directory: path.join(__dirname, 'database', 'migrations')
+        directory: path.resolve(__dirname, 'database', 'migrations')
     }
 }

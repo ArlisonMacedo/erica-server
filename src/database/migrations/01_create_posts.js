@@ -4,9 +4,6 @@ exports.up = function (knex) {
     return knex.schema.createTable('posts', table => {
         table.increments('id')
         table.text('text').nullable()
-        table.integer('match').nullable()
-        table.integer('like').notNullable()
-        table.text('comment').nullable()
         table.text('image').nullable()
 
         table.integer('user_id')
